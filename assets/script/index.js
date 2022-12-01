@@ -118,7 +118,7 @@ function progress() {
 }
 
 
-let timeLeft = 10;
+let timeLeft = 99;
 onEvent('click', btn, function () {
     userInput.focus();
     bgMusic.play();
