@@ -60,6 +60,7 @@ p {
     height: 90%;
     display: grid;
     place-items: center;
+
 }
 
 .question {
@@ -68,6 +69,7 @@ p {
 }
 
 input {
+    margin-top: 60px;
     width: 400px;
     height: 60px;
     padding: 0 15px;
@@ -88,7 +90,7 @@ button {
     margin: 10px 0;
     margin-left: 10px;
     text-align: center;
-    background-color: #f2f4f6;
+    background-color: rgba(242, 244, 246, 0.3);
     border: 1px solid #576043;
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
@@ -113,7 +115,7 @@ video {
     visibility: visible;
     opacity: 1;
     transform: translateX(0px);
-    transition: all 0.25s ease-in-out;
+    transition: all 0s ease-in;
     transition-delay: 4s;
 }
 

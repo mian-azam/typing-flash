@@ -15,6 +15,7 @@ const head = select('.head');
 const feedSection = select('.feedback');
 const restartBtn = select('.restart-btn');
 
+
 const bgMusic = new Audio('./assets/media/bg-music.mp3');
 bgMusic.type = 'audio/mp3';
 
@@ -23,15 +24,7 @@ bgMusic2.type = 'audio/mp3';
 
 const backVideo = select('.back-video');
 
-function animation() {
-    head.classList.add('animation');
-    body.classList.add('animation');
-    backVideo.classList.add('video');
-}
 
-window.addEventListener('load', () => {
-    animation();
-});
 
 // =======================================================================================
 
@@ -125,7 +118,7 @@ function progress() {
 }
 
 
-let timeLeft = 99;
+let timeLeft = 10;
 onEvent('click', btn, function () {
     userInput.focus();
     bgMusic.play();
@@ -135,6 +128,8 @@ onEvent('click', btn, function () {
         timeLeft -= 1;
         if (timer.innerText == 0) {
             feedBackForTime.innerText = 'Game Over';
+            head.classList.remove('animation');
+            body.classList.remove('animation');
             progress();
             bgMusic.pause();
             bgMusic2.play();
@@ -149,6 +144,16 @@ onEvent('click', btn, function () {
 onEvent('click', restartBtn, function () {
     bgMusic2.pause();
     window.location.reload();
+});
+
+function animation() {
+    head.classList.add('animation');
+    body.classList.add('animation');
+    backVideo.classList.add('video');
+}
+
+window.addEventListener('load', () => {
+    animation();
 });
 
 
