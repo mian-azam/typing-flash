@@ -21,6 +21,18 @@ bgMusic.type = 'audio/mp3';
 const bgMusic2 = new Audio('./assets/media/bg-music-2.mp3');
 bgMusic2.type = 'audio/mp3';
 
+const backVideo = select('.back-video');
+
+function animation() {
+    head.classList.add('animation');
+    body.classList.add('animation');
+    backVideo.classList.add('video');
+}
+
+window.addEventListener('load', () => {
+    animation();
+});
+
 // =======================================================================================
 
 const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'population',
