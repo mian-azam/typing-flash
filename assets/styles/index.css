@@ -1,0 +1,93 @@
+@import url(./reset.css);
+
+body {
+    background-color: #f2f4f6;
+}
+
+.container {
+    width: min(100% - 30px, 1280px);
+    margin-inline: auto;
+    height: 100vh;
+    justify-content: center;
+}
+
+
+
+.feedback {
+    visibility: hidden;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    height: 80vh;
+    width: 98%;
+    position: absolute;
+    padding: 20px;
+}
+
+p {
+    font-size: 26px;
+}
+
+.head {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.time-left {
+    display: flex;
+    width: 90%;
+    text-align: left;
+}
+
+.points {
+    display: flex;
+    width: 10%;
+    text-align: left;
+}
+
+/* ======================================================================================== */
+
+.body {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    place-items: center;
+}
+
+.question {
+    font-size: 30px;
+    text-align: center;
+}
+
+input {
+    width: 300px;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid rgba(34, 13, 13, 0.1);
+    background-color: rgba(228, 238, 218, 0.3);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--app-dark-bg);
+    text-align: center;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    margin: 10px 0;
+    margin-left: 10px;
+    text-align: center;
+    background-color: #1c2b23;
+    border: 1px solid #576043;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: all 0.25s ease-in-out;
+    color: #f2f4f6;
+    cursor: pointer;
+}
