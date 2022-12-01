@@ -41,7 +41,6 @@ function producingWords() {
         givenWord.innerText = words[k];
     }
 
-
 }
 // =======================================================================================
 
@@ -110,7 +109,7 @@ function progress() {
 
 let timeLeft = 5;
 onEvent('click', btn, function () {
-
+    userInput.focus();
     const countDown = setInterval(() => {
         if (timeLeft <= 0) clearInterval(countDown)
         timer.innerText = timeLeft;
