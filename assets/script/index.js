@@ -40,14 +40,14 @@ const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building',
 
 let wordsLength = words.length;
 
-
 function producingWords() {
     for (let i = 0; i < wordsLength; i++) {
         let k = Math.floor(Math.random() * words.length);
         givenWord.innerText = words[k];
     }
-
 }
+
+
 // =======================================================================================
 
 const array = [];
@@ -70,6 +70,7 @@ onEvent('keyup', userInput, function () {
 });
 
 
+
 // =======================================================================================
 
 
@@ -88,7 +89,6 @@ function progress() {
 
     btn.innerText = 'Restart';
     const progessDiv = document.createElement('div');
-    // progessDiv.classList.add('progress');
     feedSection.appendChild(progessDiv);
 
     const paraOne = document.createElement('p');
