@@ -15,6 +15,12 @@ const head = select('.head');
 const feedSection = select('.feedback');
 const restartBtn = select('.restart-btn');
 
+const bgMusic = new Audio('./assets/media/bg-music.mp3');
+bgMusic.type = 'audio/mp3';
+
+const bgMusic2 = new Audio('./assets/media/bg-music-2.mp3');
+bgMusic2.type = 'audio/mp3';
+
 // =======================================================================================
 
 const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'population',
@@ -107,9 +113,10 @@ function progress() {
 }
 
 
-let timeLeft = 5;
+let timeLeft = 10;
 onEvent('click', btn, function () {
     userInput.focus();
+    bgMusic.play();
     const countDown = setInterval(() => {
         if (timeLeft <= 0) clearInterval(countDown)
         timer.innerText = timeLeft;
@@ -117,6 +124,8 @@ onEvent('click', btn, function () {
         if (timer.innerText == 0) {
             feedBackForTime.innerText = 'Game Over';
             progress();
+            bgMusic.pause();
+            bgMusic2.play();
         }
     }, 1000)
 
@@ -126,6 +135,7 @@ onEvent('click', btn, function () {
 
 
 onEvent('click', restartBtn, function () {
+    bgMusic2.pause();
     window.location.reload();
 });
 
