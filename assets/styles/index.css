@@ -4,6 +4,7 @@ body {
     background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
         linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
         linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    color: #f2f4f6;
 }
 
 .container {
@@ -63,7 +64,6 @@ p {
 }
 
 input {
-
     width: 400px;
     height: 60px;
     padding: 0 15px;
@@ -72,10 +72,11 @@ input {
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
     font-size: 20px;
+    color: #f2f4f6;
     font-weight: 400;
-    color: var(--app-dark-bg);
     text-align: center;
 }
+
 
 button {
     width: 120px;
@@ -83,7 +84,7 @@ button {
     margin: 10px 0;
     margin-left: 10px;
     text-align: center;
-    background-color: #1c2b23;
+    background-color: #f2f4f6;
     border: 1px solid #576043;
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
@@ -91,6 +92,6 @@ button {
     font-weight: 600;
     letter-spacing: 0.2px;
     transition: all 0.25s ease-in-out;
-    color: #f2f4f6;
+    color: #1c2b23;
     cursor: pointer;
 }
