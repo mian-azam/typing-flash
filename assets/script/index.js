@@ -10,7 +10,7 @@ const btn = select('.btn');
 const givenWord = select('.question');
 const userInput = select('.input');
 const points = select('.point-para');
-const body = select('.body');
+const body = select('.game-body');
 const head = select('.head');
 const feedSection = select('.feedback');
 const restartBtn = select('.restart-btn');
@@ -43,6 +43,9 @@ const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building',
     'famous', 'league', 'memory', 'leather', 'planet', 'software', 'update', 'yellow',
     'keyboard', 'window'];
 
+
+
+
 let wordsLength = words.length;
 
 function producingWords() {
@@ -60,7 +63,7 @@ function test() {
     let userAnswer = givenWord.innerText;
     let answer = userInput.value.trim().toLowerCase();
     if (userAnswer === answer) {
-
+        producingWords();
         userInput.value = '';
         array.push(userAnswer);
         points.innerText = array.length;
@@ -69,9 +72,6 @@ function test() {
 
 onEvent('keyup', userInput, function () {
     test();
-    if (userInput.value == '') {
-        producingWords();
-    }
 });
 
 
@@ -135,7 +135,9 @@ onEvent('click', btn, function () {
             bgMusic2.play();
         }
     }, 1000)
-
+    btn.style.visibility = 'hidden';
+    userInput.disabled = false;
+    userInput.focus();
     producingWords();
 
 });
