@@ -26,6 +26,9 @@ bgMusic.type = 'audio/mp3';
 const bgMusic2 = new Audio('./assets/media/bg-music-2.mp3');
 bgMusic2.type = 'audio/mp3';
 
+const click = new Audio('./assets/media/click-124467.mp3');
+click.type = 'audio/mp3';
+
 const backVideo = select('.back-video');
 
 
@@ -68,6 +71,7 @@ function test() {
     let answer = userInput.value.trim().toLowerCase();
     if (userAnswer === answer) {
         producingWords();
+        click.play();
         userInput.value = '';
         array.push(userAnswer);
         points.innerText = array.length;
@@ -107,7 +111,7 @@ function gettingScore() {
 
     onEvent('click', btnTwo, function () {
         scoreList.innerHTML = highScores.map(score => {
-            return `<li> ${highScores.indexOf(score) + 1} ${score.score} | ${score.percent}`;
+            return `<li> #${highScores.indexOf(score) + 1}  Points:${score.score}  | ${score.percent}%`;
         })
     });
 
