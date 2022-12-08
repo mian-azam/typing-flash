@@ -83,6 +83,15 @@ onEvent('keyup', userInput, function () {
 function progress() {
     const now = new Date();
     let date = now.toString().substring(0, 15);
+    // function getDate() {
+    //     const options = {
+    //         year: 'numeric',
+    //         month: 'short',
+    //         day: 'numeric'
+    //     }
+    //     return new Date().toLocaleDateString('en-ca', options);
+    // }
+
     let hits = array.length;
     let percent = (100 * hits) / words.length;
     let percentage = percent.toFixed(1)
@@ -118,7 +127,7 @@ function progress() {
 }
 
 
-let timeLeft = 99;
+let timeLeft = 10;
 onEvent('click', btn, function () {
     userInput.focus();
     bgMusic.play();
