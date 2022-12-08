@@ -7,6 +7,8 @@ import { Score } from "./classes.js";
 const timer = select('.time-para');
 const feedBackForTime = select('.time-left');
 const btn = select('.btn');
+const btnTwo = select('.btn-two');
+const btnBack = select('.back');
 const givenWord = select('.question');
 const userInput = select('.input');
 const points = select('.point-para');
@@ -14,6 +16,7 @@ const body = select('.game-body');
 const head = select('.head');
 const feedSection = select('.feedback');
 const restartBtn = select('.restart-btn');
+const dialog = select('.dialog');
 
 
 const bgMusic = new Audio('./assets/media/bg-music.mp3');
@@ -177,6 +180,23 @@ function animation() {
     body.classList.add('animation');
     backVideo.classList.add('video');
 }
+
+onEvent('click', btnTwo, function () {
+    dialog.showModal();
+});
+
+onEvent('click', btnBack, function () {
+    dialog.close();
+});
+
+onEvent('click', dialog, function (event) {
+    const rect = this.getBoundingClientRect();
+
+    if (event.clientY < rect.top || event.clientY > rect.bottom ||
+        event.clientX < rect.left || event.clientX > rect.right) {
+        dialog.close();
+    }
+});
 
 window.addEventListener('load', () => {
     animation();
