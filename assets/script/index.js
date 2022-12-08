@@ -17,6 +17,7 @@ const head = select('.head');
 const feedSection = select('.feedback');
 const restartBtn = select('.restart-btn');
 const dialog = select('.dialog');
+const scoreList = select('.score-list');
 
 
 const bgMusic = new Audio('./assets/media/bg-music.mp3');
@@ -78,6 +79,44 @@ onEvent('keyup', userInput, function () {
 });
 
 
+//==============================================================================
+
+function gettingScore() {
+    const now = new Date();
+    const hits = array.length;
+    const percent = (100 * hits) / words.length;
+    const percentage = percent.toFixed(1)
+
+    const score = {
+        score: hits,
+        percent: percentage
+    }
+
+    let empty = []
+    const hScores = localStorage.getItem('highScores');
+    const highScores = JSON.parse(hScores) || empty;
+
+    highScores.push(score);
+
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(9);
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+
+
+    onEvent('click', btnTwo, function () {
+        scoreList.innerHTML = highScores.map(score => {
+            return `<li> ${highScores.indexOf(score) + 1} ${score.score} | ${score.percent}`;
+        })
+    });
+
+}
+gettingScore();
+
+
+
+
 
 // =======================================================================================
 
@@ -89,30 +128,8 @@ function progress() {
     const date = now.toString().substring(0, 15);
     const hits = array.length;
     const percent = (100 * hits) / words.length;
-    const percentage = percent.toFixed(1)
-    //==============================================================================
+    const percentage = percent.toFixed(1);
 
-    function gettingScore() {
-
-        const score = {
-            score: hits,
-            percent: percentage
-        }
-
-        let empty = []
-        const hScores = localStorage.getItem('highScores');
-        const highScores = JSON.parse(hScores) || empty;
-
-        highScores.push(score);
-
-        highScores.sort((a, b) => b.score - a.score);
-        highScores.splice(3);
-
-        localStorage.setItem('highScores', JSON.stringify(highScores));
-
-        console.log(highScores);
-
-    }
     gettingScore();
 
     //==============================================================================
@@ -170,7 +187,17 @@ onEvent('click', btn, function () {
 });
 
 
+
+
+
+//==============================================================================
+
+
+//===============
+
+
 onEvent('click', restartBtn, function () {
+
     bgMusic2.pause();
     window.location.reload();
 });
@@ -182,6 +209,7 @@ function animation() {
 }
 
 onEvent('click', btnTwo, function () {
+
     dialog.showModal();
 });
 
