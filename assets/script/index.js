@@ -81,44 +81,59 @@ onEvent('keyup', userInput, function () {
 
 
 function progress() {
+
     const now = new Date();
-    let date = now.toString().substring(0, 15);
-    // function getDate() {
-    //     const options = {
-    //         year: 'numeric',
-    //         month: 'short',
-    //         day: 'numeric'
-    //     }
-    //     return new Date().toLocaleDateString('en-ca', options);
-    // }
+    const date = now.toString().substring(0, 15);
+    const hits = array.length;
+    const percent = (100 * hits) / words.length;
+    const percentage = percent.toFixed(1)
+    //==============================================================================
 
-    let hits = array.length;
-    let percent = (100 * hits) / words.length;
-    let percentage = percent.toFixed(1)
+    function gettingScore() {
 
-    const score = new Score(date, hits, percentage);
-    const dateP = score.getDate();
-    const hitsP = score.getHits();
-    const percentP = score.getPercentage();
+        const score = {
+            score: hits,
+            percent: percentage
+        }
 
+        let empty = []
+        const hScores = localStorage.getItem('highScores');
+        const highScores = JSON.parse(hScores) || empty;
+
+        highScores.push(score);
+
+        highScores.sort((a, b) => b.score - a.score);
+        highScores.splice(3);
+
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+
+        console.log(highScores);
+
+    }
+    gettingScore();
+
+    //==============================================================================
     btn.innerText = 'Restart';
     const progessDiv = document.createElement('div');
     feedSection.appendChild(progessDiv);
 
+
     const paraOne = document.createElement('p');
     progessDiv.appendChild(paraOne)
     paraOne.innerHTML = `<h2>Date:</h2>
-    <p>${dateP}</p>`;
+    <p>${date}</p>`;
 
     const paraTwo = document.createElement('p');
     progessDiv.appendChild(paraTwo)
     paraTwo.innerHTML = `<h2>Hits:</h2>
-    <p>${hitsP}</p>`;
+    <p>${hits}</p>`;
 
     const paraThree = document.createElement('p');
     progessDiv.appendChild(paraThree)
     paraThree.innerHTML = `<h2>Progress:</h2>
-    <p>${percentP}%</p>`;
+    <p>${percentage}%</p>`;
+
+
 
     body.style.visibility = 'hidden';
     head.style.visibility = 'hidden';
